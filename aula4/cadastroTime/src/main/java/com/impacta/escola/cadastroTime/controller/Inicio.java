@@ -1,4 +1,4 @@
-package com.impacta.escola.cadastroEscolar.controller;
+package com.impacta.escola.cadastroTime.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,10 +12,6 @@ public class Inicio {
 		return "index";
 	}
 	
-	@GetMapping("/cadastroJogadorRota")//Rota
-	public String cadastro() {
-		
-		return "cadastroJogador";//Arquivo HTML
-	}
+	
 
 }
