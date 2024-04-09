@@ -58,6 +58,29 @@ public class AnimalController {
 		
 	}
 	
+	@RequestMapping("/editarAnimalRota")
+	public ModelAndView editarAnimal(long id) {
+	
+		Animal animalEncontrado = animalRepository.findById(id);
+	
+		ModelAndView modelAndViewAnimal = new ModelAndView("editarAnimal");
+		
+		modelAndViewAnimal.addObject("animal", animalEncontrado );
+		
+	
+		return modelAndViewAnimal;
+		
+	}
+	
+	@PostMapping("/editarAnimalRota")
+	public String editarAnimalPost(Animal animal) {
+	
+		animalRepository.save(animal);
+		
+	
+		return "redirect:/listaAnimaisRota";
+		
+	}
 	
 	
-}
+}	

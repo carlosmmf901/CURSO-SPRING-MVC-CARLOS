@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Id<th>
+				<th>Nome</th>
+				<th>Raca</th>
+				<th>deletar</th>
+				<th>editar</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="animal : ${animais}">
+				
+				<td th:text="${animal.id}"></td>
+				<td th:text="${animal.nome}"></td>
+				<td th:text="${animal.raca}"></td>
+				<td>
+					<a th:href="${(#mvc.url('AC#deletarAnimal').arg(0, animal.id)).build()}" >deletar</a>
+				</td>
+				
+				<td>
+					<a th:href="${(#mvc.url('AC#editarAnimal').arg(0, animal.id)).build()}" >editar</a>
+				</td>
+				
+			
+			</tr>
+		</tbody>
+	</table>
+
+
+</body>
+</html>
