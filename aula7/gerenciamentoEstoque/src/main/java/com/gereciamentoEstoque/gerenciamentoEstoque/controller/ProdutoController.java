@@ -28,7 +28,7 @@ public class ProdutoController {
 	public String produtoFormularioPost(Produto produto) {
 		produtoRepository.save(produto);
 		
-		return "cadastroProduto";
+		return "cadastroPro duto";
 		
 	}
 	
