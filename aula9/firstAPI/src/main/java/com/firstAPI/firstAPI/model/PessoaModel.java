@@ -1,21 +1,30 @@
 package com.firstAPI.firstAPI.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 @Entity
-public class MeuPrimeiroPost implements Serializable {
+@EntityListeners(AuditingEntityListener.class)
+public class PessoaModel {
     private String meuTexto;
     private String email;
     private String nome;
-    private int cpf;
+    private String cpf;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getMeuTexto() {
         return meuTexto;
@@ -34,10 +43,6 @@ public class MeuPrimeiroPost implements Serializable {
         return nome;
     }
 
-    public int getCpf() {
-        return cpf;
-    }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -46,7 +51,11 @@ public class MeuPrimeiroPost implements Serializable {
         this.nome = nome;
     }
 
-    public void setCpf(int cpf) {
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 }
