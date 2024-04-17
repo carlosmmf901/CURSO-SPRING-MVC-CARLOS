@@ -8,7 +8,6 @@ import com.firstAPI.firstAPI.model.PessoaModel;
 import com.firstAPI.firstAPI.exception.ResourceNotFoundException;
 
 
-
 @RestController
 public class PessoaController {
 
@@ -21,10 +20,10 @@ public class PessoaController {
         return "Esse é o seu primeiro get na API";
     }
 
-    @PostMapping("/user")
-    public String criarUsuario(@RequestBody PessoaModel pessoaModel) {
+    @PostMapping("/cadastroPessoaRota")
+    public String cadastroPessoa(@RequestBody PessoaModel pessoaModel){
         pessoaRepository.save(pessoaModel);
-        return "User created successfully";
+        return "A pessoa "+pessoaModel.getNome()+ " foi cadastrada";
     }
 
     @GetMapping("/listaUsuarios")
@@ -54,7 +53,7 @@ public class PessoaController {
     }
 
     @DeleteMapping("/PessoaRota/{id}")
-    public String deletarPessoa(@PathVariable(value = "id") long pessoaId)
+    public String deletarPessoa (@PathVariable(value = "id") long pessoaId)
             throws ResourceNotFoundException {
         PessoaModel pessoaModel =
                 pessoaRepository
